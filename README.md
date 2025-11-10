@@ -40,3 +40,10 @@ It is **not** connected to real RBC systems or real policies; all documents are 
 
 ```http
 GET /ask?question=How do we manage operational risk?
+
+## Governance & Auditability
+
+- **Context-only answers**: The assistant must answer strictly from retrieved context. If insufficient, it states: “I don’t know based on the provided context.”
+- **Citations**: Answers include `[Source i]` tags mapping to the returned chunks.
+- **Determinism**: Temperature = 0; prompts and models are versioned.
+- **Logs**: For each request we can log `{question, retrieved chunks (IDs/snippets), prompt, answer, model/version, timestamp}` to support model risk governance.

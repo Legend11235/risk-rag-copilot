@@ -1,0 +1,9 @@
+Operational Risk – Key Principles (generic, non-confidential)
+- Independent risk oversight separate from front-line business units (three lines of defense).
+- Defined risk appetite, limits, and escalation procedures approved by governance.
+- Key Risk Indicators (KRIs) and Risk & Control Self-Assessments (RCSA) performed regularly.
+- Incident capture, root-cause analysis, and remediation tracking.
+- Scenario analysis and stress testing proportional to materiality.
+- Model risk controls where models/tools are used in op-risk processes.
+- Documentation, change management, and auditability of decisions and assumptions.
+- Ongoing monitoring, reporting, and governance review.

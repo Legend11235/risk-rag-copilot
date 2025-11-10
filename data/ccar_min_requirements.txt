@@ -1,0 +1,5 @@
+CCAR Overview (generic)
+- Capital planning under stressed scenarios.
+- Governance: board oversight, independent validation of models and assumptions.
+- Documentation: methodology, data lineage, model performance, limitations.
+- Ongoing monitoring and remediation tracking.

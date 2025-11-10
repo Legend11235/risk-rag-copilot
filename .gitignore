@@ -1,0 +1,52 @@
+# OS-specific junk
+.DS_Store
+Thumbs.db
+
+# Python cache / build
+__pycache__/
+*.py[cod]
+*$py.class
+.build/
+dist/
+build/
+.eggs/
+*.egg
+*.egg-info/
+
+# Virtual environments
+.env
+.venv
+venv/
+env/
+ENV/
+
+# Jupyter / IPython
+.ipynb_checkpoints
+.profile_default/
+ipython_config.py
+
+# VS Code / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+
+# Coverage / test
+.coverage
+.coverage.*
+.cache/
+pytest_cache/
+htmlcov/
+
+# MyPy / type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+
+# FastAPI / tooling
+*.sqlite3

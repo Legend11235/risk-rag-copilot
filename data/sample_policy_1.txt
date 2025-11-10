@@ -1,0 +1,10 @@
+This is a placeholder sample policy for a fictional financial institution.
+It outlines general principles for credit risk, market risk, and operational risk management.
+
+Key principles:
+- Independent risk oversight separate from front-line business units.
+- Clear risk appetite, limits, and escalation procedures.
+- Documentation and auditability of models, assumptions, and decisions.
+- Use of stress testing and scenario analysis to assess vulnerabilities.
+
+This sample file is for demonstration only and does not represent real RBC policies.

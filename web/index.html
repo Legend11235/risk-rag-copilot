@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Risk RAG Copilot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen bg-slate-50 text-slate-900">
+    <!-- If you see CORS errors, the FastAPI server must allow http://127.0.0.1:5500. -->
+    <div id="toast" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+    <header class="bg-slate-900 text-white">
+      <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3">
+        <div>
+          <p class="text-lg font-semibold">Risk RAG Copilot</p>
+          <p class="text-sm text-slate-300">Local FastAPI frontend</p>
+        </div>
+        <div
+          id="healthBanner"
+          class="rounded-full px-4 py-1 text-sm font-semibold tracking-wide"
+          aria-live="polite"
+        >
+          Checking…
+        </div>
+        <button
+          id="sidebarToggle"
+          class="rounded-md bg-slate-800 px-3 py-2 text-sm font-medium text-white shadow md:hidden"
+          aria-label="Toggle sidebar"
+        >
+          Menu
+        </button>
+      </div>
+    </header>
+
+    <main class="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-6 md:flex-row">
+      <aside
+        id="sidebar"
+        class="hidden w-full flex-shrink-0 flex-col gap-4 rounded-xl bg-white p-4 shadow md:flex md:w-72"
+      >
+        <section class="space-y-2">
+          <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+            Quick Actions
+          </h2>
+          <div class="space-y-2">
+            <button
+              id="btnHealth"
+              class="w-full rounded-lg bg-slate-900 px-4 py-2 text-white shadow transition hover:bg-slate-800"
+              aria-label="Check server health"
+            >
+              Health
+            </button>
+            <button
+              id="btnStats"
+              class="w-full rounded-lg bg-slate-200 px-4 py-2 text-slate-900 transition hover:bg-slate-300"
+              aria-label="Fetch index stats"
+            >
+              Stats
+            </button>
+            <button
+              id="btnRebuild"
+              class="w-full rounded-lg bg-amber-500 px-4 py-2 text-white shadow transition hover:bg-amber-400"
+              aria-label="Rebuild vector index"
+            >
+              Rebuild Index
+            </button>
+          </div>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">
+            Upload Policy PDF
+          </h2>
+          <label for="pdfInput" class="block text-sm font-medium text-slate-600">
+            Choose file
+          </label>
+          <input
+            type="file"
+            id="pdfInput"
+            accept="application/pdf"
+            class="w-full rounded-lg border border-dashed border-slate-300 p-3 text-sm"
+          />
+          <button
+            id="btnUpload"
+            class="w-full rounded-lg bg-emerald-500 px-4 py-2 text-white shadow transition hover:bg-emerald-400"
+            aria-label="Upload selected PDF"
+          >
+            Upload PDF
+          </button>
+          <p id="uploadStatus" class="text-sm text-slate-500"></p>
+        </section>
+      </aside>
+
+      <section class="flex-1 space-y-4">
+        <div class="rounded-xl bg-white p-4 shadow">
+          <div class="flex items-center justify-between">
+            <h2 class="text-base font-semibold text-slate-800">Server Stats</h2>
+            <button
+              class="text-sm font-medium text-slate-500 underline"
+              aria-label="Refresh stats"
+              id="statsRefreshInline"
+            >
+              Refresh
+            </button>
+          </div>
+          <pre
+            id="statsOutput"
+            class="mt-2 max-h-40 overflow-y-auto rounded-lg bg-slate-900 p-3 text-sm text-slate-100"
+          >No stats yet.</pre>
+        </div>
+
+        <div class="rounded-xl bg-white p-0 shadow">
+          <div
+            id="chatLog"
+            class="h-[55vh] space-y-4 overflow-y-auto px-4 py-4"
+            aria-live="polite"
+          ></div>
+          <form id="chatForm" class="flex items-center gap-3 border-t border-slate-100 px-4 py-4">
+            <label for="chatInput" class="sr-only">Ask a question</label>
+            <input
+              id="chatInput"
+              type="text"
+              name="question"
+              placeholder="Ask about your policies…"
+              class="flex-1 rounded-lg border border-slate-200 px-4 py-3 text-base focus:border-slate-400 focus:outline-none"
+              required
+            />
+            <button
+              id="sendBtn"
+              type="submit"
+              class="rounded-lg bg-slate-900 px-5 py-3 text-white shadow transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-400"
+              aria-label="Send question"
+            >
+              Send
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
